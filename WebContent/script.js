@@ -1,3 +1,8 @@
+function addFavourite(myArr){
+	console.log("Hello");
+	console.log(JSON.stringify(myArr));
+}
+
 function getWeather(cityId)
 		{
 			var xmlHttp=new XMLHttpRequest();
@@ -14,21 +19,24 @@ function getWeather(cityId)
 					var date=myArr.DailyForecasts[0].Date;
 					var maxtemp=myArr.DailyForecasts[0].Temperature.Maximum.Value;
 					var mintemp=myArr.DailyForecasts[0].Temperature.Minimum.Value;
-					/*document.write("<br>Date:"+date);*/document.getElementById("city").innerHTML=city;
-					document.write("<br>Maximum Temperature : "+maxtemp);document.getElementById("maxTemp").innerHTML=maxtemp;
-					document.write("<br>Minimum Temperature : "+mintemp);document.getElementById("minTemp").innerHTML=mintemp;
-					document.write("<br>Forecast : "+summary);document.getElementById("forecast").innerHTML=summary;
-					document.write("<br>Season : "+categoury);document.getElementById("season").innerHTML=categoury;
-					document.write("<br>Day Conditions : "+myArr.DailyForecasts[0].Day.IconPhrase);
-					document.write("<br>Night Conditions : "+myArr.DailyForecasts[0].Night.IconPhrase);
+				//	document.getElementById("city").innerHTML=city;
+					document.getElementById("date").innerHTML=date;
+					document.getElementById("maxTemp").innerHTML=maxtemp;
+					document.getElementById("minTemp").innerHTML=mintemp;
+					document.getElementById("forecast").innerHTML=summary;
+					document.getElementById("season").innerHTML=categoury;
+					document.getElementById("day").innerHTML=myArr.DailyForecasts[0].Day.IconPhrase;
+					document.getElementById("night").innerHTML=myArr.DailyForecasts[0].Night.IconPhrase;
+					document.getElementById("add").innerHTML="<input type='button' value='Add to Favourites' onClick='addFavourite("+myArr+")'>";
 				}
 			}
 		}
 		function getData()
 		{
+		//	console.log("Hello");
 			var xmlHttp = new XMLHttpRequest();
 			var city=document.getElementById("city").value;
-			document.write(city+"<br>");
+			document.getElementById("cityName").innerHTML=city;
 			var url ="http://dataservice.accuweather.com/locations/v1/cities/search?apikey=eEqCryv3F64kuAGrHDeGHKNkAbGuIGP3&q="+city;
 			xmlHttp.open("GET",url, true);
 			xmlHttp.send();

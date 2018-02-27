@@ -43,22 +43,24 @@
 				<p class="lead">Get updated weather headlines of your desired locations anytime,.</p>
 				<form class="form-inline my-2 my-lg-0 pt-5">
 					<input class="form-control mr-sm-2" type="text" id="city" placeholder="Enter City Name">
-					<button class="btn btn-secondary my-2 my-sm-0" type="submit" onClick="getData()">Search</button>
+					<!-- <button class="btn btn-secondary my-2 my-sm-0" onClick="getData()">Search</button> -->
+					<input type="button" class="btn btn-secondary my-2 my-sm-0" onClick="getData()" value="Check">
 				</form>
 			</div>
 		</div>
 	</div>
 <!-- Main Document area starts here -->
 	<div>
-		<h3>City: </h3>	<p id="city"></p>
-		<h3>Date: </h3>	<p id="date"></p>
-		<h3>Maximum Temperature: </h3>	<p id="maxTemp"></p>
-		<h3>Minimum Temperature: </h3>	<p id="minTemp"></p>
-		<h3>Forecast: </h3>	<p id="forecast"></p>
-		<h3>Season: </h3>	<p id="season"></p>
-		<h3>Day Conditions: </h3>	<p id="day"></p>
-		<h3>Night Conditions: </h3>	<p id="night"></p>
+		<h3>City: </h3>	<span id="cityName"></span>
+		<h3>Date: </h3>	<span id="date"></span>
+		<h3>Maximum Temperature: </h3>	<span id="maxTemp"></span>
+		<h3>Minimum Temperature: </h3>	<span id="minTemp"></span>
+		<h3>Forecast: </h3>	<span id="forecast"></span>
+		<h3>Season: </h3>	<span id="season"></span>
+		<h3>Day Conditions: </h3>	<span id="day"></span>
+		<h3>Night Conditions: </h3>	<span id="night"></span>
 	</div>
+	<p id="add"></p>
 	<script type="text/javascript" src="script.js"></script>
 	<!-- jQuery first, then Tether, then Bootstrap JS. -->
 	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
