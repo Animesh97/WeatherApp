@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+body{
+	/* background-color:#404047; */
+}
+
+.jumbotron{
+	background-image:url("lightning.jpeg");
+	background-repear:no-repeat;
+	height:500px; 
+}
