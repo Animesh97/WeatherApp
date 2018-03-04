@@ -14,7 +14,9 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
+
 <!-- Adding Navbar for displaying links and Serach box -->
+
 	<nav class="navbar navbar-toggleable-md bg-inverse">
 		<button class="navbar-toggler navbar-toggler-right" type="button"
 			data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -35,7 +37,9 @@
 			</ul>
 		</div>
 	</nav>
+	
 <!-- Inserting Jumbotron To display main area -->
+
 	<div class="container">
 		<div class="jumbotron jumbotron-fluid">
 			<div class="container text-white">
@@ -50,15 +54,19 @@
 			</div>
 		</div>
 	</div>
+	
 <!-- Main Document area starts here -->
-	<div id="showArea">
+
+	<div id="showArea">		<!-- Div area to Display the results -->
 		
 	</div>
-	<div id="addButton">
+	<div id="addButton">	<!-- Div area which displays the button for adding matter to favourites -->
 	
 	</div>
 	<p id="add"></p>
-	<script type="text/javascript" src="script.js"></script>
+	
+	<script type="text/javascript" src="script.js"></script>		<!-- Adding external javascript -->
+	
 	<!-- jQuery first, then Tether, then Bootstrap JS. -->
 	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
 		integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"

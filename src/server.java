@@ -19,25 +19,25 @@ public class server extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		response.setContentType("text/html");
+		response.setContentType("text/html");		
 		PrintWriter out=response.getWriter();
-		String city = request.getParameter("city");
-		String cityId = request.getParameter("cityId");
+		String city = request.getParameter("city");				/*Extracting city name from request*/
+		String cityId = request.getParameter("cityId");			/*Extracting city ID from request*/
 		System.out.println(city);
 		System.out.println(cityId);
 		try {
 			File file = new File("/home/animeshp/StackRoute/WeatherApp/src/data.json");
-			BufferedReader br = new BufferedReader(new FileReader(file));
-			JSONObject jobj = new JSONObject();
-			JSONObject jtemp = new JSONObject();
-			JSONArray jarr = new JSONArray();
+			BufferedReader br = new BufferedReader(new FileReader(file));			/*Read the JSON File*/
+			JSONObject jobj = new JSONObject();					/*Object for storing the JSONArray*/
+			JSONObject jtemp = new JSONObject();				/*Temporary JSON Object to store internal values*/
+			JSONArray jarr = new JSONArray();					/*JSONArray Object*/
 			jtemp.put("city", city);
 			jtemp.put("cityId", cityId);
 			String s = br.readLine();
-			if (s==null) {
+			if (s==null) {										/*If JSON file is empty,directly insert into the file*/
 				jarr.add(jtemp);
 				jobj.put("favCity", jarr);
-			} else {
+			} else {											/*If not empty,extract JSONArray and append the values to it*/
 				JSONParser parser = new JSONParser();
 				Object obj = parser.parse(new FileReader("/home/animeshp/StackRoute/WeatherApp/src/data.json"));
 				JSONObject jsonObject = (JSONObject) obj;
@@ -50,7 +50,7 @@ public class server extends HttpServlet {
 			if(jarr.size()>10) {
 				//jarr[0].remove("city");
 			}
-			FileWriter fr = new FileWriter("/home/animeshp/StackRoute/WeatherApp/src/data.json");
+			FileWriter fr = new FileWriter("/home/animeshp/StackRoute/WeatherApp/src/data.json");		/*Finally write back to the JSON File*/
 			fr.write(jobj.toString());
 			fr.close();
 			br.close();
@@ -61,11 +61,4 @@ public class server extends HttpServlet {
 			e.printStackTrace();
 		}
 	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
-
 }
