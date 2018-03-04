@@ -44,21 +44,22 @@
 				<form class="form-inline my-2 my-lg-0 pt-5">
 					<input class="form-control mr-sm-2" type="text" id="city" placeholder="Enter City Name">
 					<!-- <button class="btn btn-secondary my-2 my-sm-0" onClick="getData()">Search</button> -->
-					<input type="button" class="btn btn-secondary my-2 my-sm-0" onClick="getData()" value="Check">
-				</form>
+					<input type="button" class="btn btn-secondary my-2 my-sm-0" onClick="getData()" value="Check">					
+				</form><br><br>
+				<input type="button" class="btn btn-secondary my-2 my-sm-0" onClick="viewFavourites()" value="View Favourites">
 			</div>
 		</div>
 	</div>
 <!-- Main Document area starts here -->
-	<div>
-		<h3>City: </h3>	<span id="cityName"></span>
-		<h3>Date: </h3>	<span id="date"></span>
-		<h3>Maximum Temperature: </h3>	<span id="maxTemp"></span>
-		<h3>Minimum Temperature: </h3>	<span id="minTemp"></span>
-		<h3>Forecast: </h3>	<span id="forecast"></span>
-		<h3>Season: </h3>	<span id="season"></span>
-		<h3>Day Conditions: </h3>	<span id="day"></span>
-		<h3>Night Conditions: </h3>	<span id="night"></span>
+	<div id="showArea">
+		<!-- <h3>City: </h3>	<span id="cityName"></span><br>
+		<h3>Date: </h3>	<span id="date"></span><br>
+		<h3>Maximum Temperature: </h3>	<span id="maxTemp"></span><br>
+		<h3>Minimum Temperature: </h3>	<span id="minTemp"></span><br>
+		<h3>Forecast: </h3>	<span id="forecast"></span><br>
+		<h3>Season: </h3>	<span id="season"></span><br>
+		<h3>Day Conditions: </h3>	<span id="day"></span><br>
+		<h3>Night Conditions: </h3>	<span id="night"></span><br> -->
 	</div>
 	<p id="add"></p>
 	<script type="text/javascript" src="script.js"></script>

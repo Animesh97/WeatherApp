@@ -1,10 +1,10 @@
 var addFavourite;
 function getWeather(cityId,city) {
 	console.log(city);
+	console.log(cityId);
 	var myArr;
 	var xmlHttp = new XMLHttpRequest();
-	var url = "http://dataservice.accuweather.com/forecasts/v1/daily/1day/"
-			+ cityId + "?apikey=eEqCryv3F64kuAGrHDeGHKNkAbGuIGP3";
+	var url = "http://dataservice.accuweather.com/forecasts/v1/daily/1day/"+cityId+"?apikey=90yI8PiEyBeShiJML1ONlNxLrYXSbBlh";
 	xmlHttp.open("GET", url, true);
 	xmlHttp.send();
 	xmlHttp.onreadystatechange = function() {
@@ -36,7 +36,7 @@ function getWeather(cityId,city) {
 		};
 		console.log(fav);
 		var xmlHttp = new XMLHttpRequest();
-		var servletUrl="http://localhost:9090/WeatherApp/server?city="+city+"&url="+url;
+		var servletUrl="http://localhost:9090/WeatherApp/server?city="+city+"&cityId="+cityId;
 		xmlHttp.open("GET",servletUrl,true);
 		xmlHttp.send();
 		xmlHttp.onreadystatechange=function(){
@@ -51,7 +51,7 @@ function getData() {
 	var xmlHttp = new XMLHttpRequest();
 	var city = document.getElementById("city").value;
 	document.getElementById("cityName").innerHTML = city;
-	var url = "http://dataservice.accuweather.com/locations/v1/cities/search?apikey=eEqCryv3F64kuAGrHDeGHKNkAbGuIGP3&q="
+	var url = "http://dataservice.accuweather.com/locations/v1/cities/search?apikey=90yI8PiEyBeShiJML1ONlNxLrYXSbBlh&q="
 			+ city;
 	xmlHttp.open("GET", url, true);
 	xmlHttp.send();
@@ -65,4 +65,23 @@ function getData() {
 			getWeather(cityId,city);
 		}
 	};
+}
+
+function viewFavourites(){
+	var xml=new XMLHttpRequest();
+	var url="http://localhost:9090/WeatherApp/favServlet";
+	xml.open("GET",url,true);
+	xml.send();
+	xml.onreadystatechange = function(){
+		if(this.readyState == 4 && this.status == 200) {
+			var myArr=JSON.parse(this.responseText);
+			var l=myArr.favCity.length;
+			console.log(myArr.favCity.length);
+			for(i=0;i<l;i++){
+				getWeather(myArr.favCity[i].cityId,myArr.favCity[i].city);
+			//	console.log(myArr.favCity[i].cityId);
+			//	console.log(myArr.favCity[i].city)
+			}
+		}
+	}
 }
