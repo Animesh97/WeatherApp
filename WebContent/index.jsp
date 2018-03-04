@@ -52,14 +52,10 @@
 	</div>
 <!-- Main Document area starts here -->
 	<div id="showArea">
-		<!-- <h3>City: </h3>	<span id="cityName"></span><br>
-		<h3>Date: </h3>	<span id="date"></span><br>
-		<h3>Maximum Temperature: </h3>	<span id="maxTemp"></span><br>
-		<h3>Minimum Temperature: </h3>	<span id="minTemp"></span><br>
-		<h3>Forecast: </h3>	<span id="forecast"></span><br>
-		<h3>Season: </h3>	<span id="season"></span><br>
-		<h3>Day Conditions: </h3>	<span id="day"></span><br>
-		<h3>Night Conditions: </h3>	<span id="night"></span><br> -->
+		
+	</div>
+	<div id="addButton">
+	
 	</div>
 	<p id="add"></p>
 	<script type="text/javascript" src="script.js"></script>

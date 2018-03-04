@@ -18,15 +18,17 @@ function getWeather(cityId,city) {
 			var maxtemp = myArr.DailyForecasts[0].Temperature.Maximum.Value;
 			var mintemp = myArr.DailyForecasts[0].Temperature.Minimum.Value;
 			//	document.getElementById("city").innerHTML=city;
-			document.getElementById("date").innerHTML = date;
-			document.getElementById("maxTemp").innerHTML = maxtemp;
-			document.getElementById("minTemp").innerHTML = mintemp;
-			document.getElementById("forecast").innerHTML = summary;
-			document.getElementById("season").innerHTML = categoury;
-			document.getElementById("day").innerHTML = myArr.DailyForecasts[0].Day.IconPhrase;
-			document.getElementById("night").innerHTML = myArr.DailyForecasts[0].Night.IconPhrase;
-			document.getElementById("add").innerHTML = `<input type='button' value='Add to Favourites' onClick='addFavourite()'>`;
-		}
+			var show=document.getElementById("showArea");
+			show.innerHTML+="<br><strong>City:</strong>"+city;
+			show.innerHTML+="<br><strong>Maximum Temperature:</strong>"+maxtemp;
+			show.innerHTML+="<br><strong>Minimum Temperature:</strong>"+mintemp;
+			show.innerHTML+="<br><strong>Forecast:</strong>"+summary;
+			show.innerHTML+="<br><strong>Weather:</strong>"+categoury;
+			show.innerHTML+="<br><strong>Day Time:</strong>"+myArr.DailyForecasts[0].Day.IconPhrase;
+			show.innerHTML+="<br><strong>Day Time:</strong>"+myArr.DailyForecasts[0].Night.IconPhrase;
+			show.innerHTML+="<br><hr>";
+			document.getElementById("addButton").innerHTML = `<input type='button' value='Add to Favourites' onClick='addFavourite()'>`;			
+			}
 	}
 	addFavourite=function () {
 		console.log("Hello");
@@ -50,7 +52,7 @@ function getData() {
 	//	console.log("Hello");
 	var xmlHttp = new XMLHttpRequest();
 	var city = document.getElementById("city").value;
-	document.getElementById("cityName").innerHTML = city;
+	//document.getElementById("cityName").innerHTML = city;
 	var url = "http://dataservice.accuweather.com/locations/v1/cities/search?apikey=90yI8PiEyBeShiJML1ONlNxLrYXSbBlh&q="
 			+ city;
 	xmlHttp.open("GET", url, true);
